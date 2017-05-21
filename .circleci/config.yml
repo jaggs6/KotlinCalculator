@@ -15,7 +15,7 @@ jobs:
       - save_cache:
           key: v1-myapp-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
           paths:
-            - /home/ubuntu/.gradle
+            - ~/.gradle
             - ~/KotlinCalculator/.gradle
       - store_artifacts:
           path: ~/KotlinCalculator/app/build/outputs/apk/debug/
