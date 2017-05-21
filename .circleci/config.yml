@@ -10,7 +10,7 @@ jobs:
           keys:
             - v1-myapp-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
             - v1-myapp-
-      - run: ./gradlew assembleDebug
+      - run: ./gradlew assembleDebug --console plain
       - save_cache:
           key: v1-myapp-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
           paths:
