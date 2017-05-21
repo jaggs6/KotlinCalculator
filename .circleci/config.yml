@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: beevelop/android:latest
-      - image: java/8-jdk
+      - image: java:8-jdk
     working_directory: ~/KotlinCalculator
     steps:
       - checkout
