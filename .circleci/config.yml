@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: ubuntu:14.04
-      - image: runmymind/docker-android-sdk:latest
+      - image: beevelop/android:latest
     working_directory: ~/KotlinCalculator
     steps:
       - checkout
