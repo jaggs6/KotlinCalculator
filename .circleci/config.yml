@@ -17,5 +17,5 @@ jobs:
             - /home/ubuntu/.gradle
             - ~/KotlinCalculator/.gradle
       - store_artifacts:
-          path: /app/build/outputs/apk/debug/
+          path: ~/KotlinCalculator/app/build/outputs/apk/debug/
           destination: build
