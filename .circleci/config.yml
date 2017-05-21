@@ -9,6 +9,7 @@ jobs:
       - restore_cache:
           keys:
             - v1-myapp-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
+            - v1-myapp-
       - run: ./gradlew
       - save_cache:
           key: v1-myapp-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
