@@ -11,6 +11,7 @@ jobs:
             - v1-myapp-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
             - v1-myapp-
       - run: ./gradlew assembleDebug --console plain
+      - run: pwd
       - save_cache:
           key: v1-myapp-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
           paths:
