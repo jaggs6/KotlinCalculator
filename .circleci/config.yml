@@ -1,0 +1,8 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - buildpack-deps:trusty
+    working_directory: ~/KotlinCalculator
+    steps:
+      - run: ./gradlew
