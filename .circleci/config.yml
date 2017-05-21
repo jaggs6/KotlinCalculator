@@ -9,11 +9,11 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-        keys:
-          - v1-myapp-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
+          keys:
+            - v1-myapp-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
       - run: ./gradlew
       - save_cache:
-        key: v1-myapp-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
-        paths:
-          - /home/ubuntu/.gradle
+          key: v1-myapp-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
+          paths:
+            - /home/ubuntu/.gradle
       - run: ./gradlew assembleDebug
