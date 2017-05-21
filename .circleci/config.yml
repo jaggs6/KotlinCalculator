@@ -2,9 +2,18 @@ version: 2
 jobs:
   build:
     docker:
+      - image: ubuntu:14.04
       - image: beevelop/android:latest
       - image: java:8-jdk
     working_directory: ~/KotlinCalculator
     steps:
       - checkout
+      - restore_cache:
+        keys:
+          - v1-myapp-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
       - run: ./gradlew
+      - save_cache:
+        key: v1-myapp-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
+        paths:
+          - /home/ubuntu/.gradle
+      - run: ./gradlew assembleDebug
