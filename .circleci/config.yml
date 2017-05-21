@@ -10,12 +10,11 @@ jobs:
           keys:
             - v1-myapp-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
             - v1-myapp-
-      - run: ./gradlew dependencies
+      - run: ./gradlew assembleDebug
       - save_cache:
           key: v1-myapp-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
           paths:
             - /home/ubuntu/.gradle
-      - run: ./gradlew assembleDebug
       - store_artifacts:
           path: /app/build/outputs/apk/debug/app-debug.apk
           destination: build
