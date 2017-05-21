@@ -3,3 +3,7 @@ jobs:
   build:
     docker:
       - image:runmymind/docker-android-sdk
+    working_directory: ~/KotlinCalculator
+    steps:
+      - checkout
+      - run: ./gradlew
