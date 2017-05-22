@@ -10,13 +10,12 @@ jobs:
           keys:
             - v1-myapp-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
             - v1-myapp-
-      - run: ./gradlew assembleDebug --console plain
+      - run: ./gradlew assembleDebug --project-cache-dir ~/.gradle --console plain
       - run: pwd
       - save_cache:
           key: v1-myapp-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
           paths:
             - ~/.gradle
-            - ~/KotlinCalculator/.gradle
       - store_artifacts:
           path: ~/KotlinCalculator/app/build/outputs/apk/debug/
           destination: build
