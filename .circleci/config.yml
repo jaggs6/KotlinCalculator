@@ -1,0 +1,20 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: beevelop/android:latest
+    working_directory: ~/KotlinCalculator
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v2-myapp-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
+      - run: ./gradlew assembleDebug --project-cache-dir ~/.gradle --console plain
+      - run: pwd
+      - save_cache:
+          key: v2-myapp-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
+          paths:
+            - ~/.gradle
+      - store_artifacts:
+          path: ~/KotlinCalculator/app/build/outputs/apk/debug/
+          destination: build
