@@ -29,5 +29,5 @@ jobs:
           name: Run Builds
           command: ./gradlew assemble --project-cache-dir ~/.gradle --console plain
       - store_artifacts:
-          path: app/build/outputs/apk/*
+          path: app/build/outputs/apk/**/*
           destination: builds
