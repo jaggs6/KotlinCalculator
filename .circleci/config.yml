@@ -5,6 +5,8 @@ jobs:
       - image: beevelop/android:latest
     working_directory: ~/KotlinCalculator
     steps:
+      - run: sdkmanager --update
+      - run: yes | sdkmanager --licenses
       - checkout
       - restore_cache:
           keys:
