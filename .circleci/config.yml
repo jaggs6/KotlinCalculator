@@ -10,7 +10,6 @@ jobs:
           keys:
             - v2-myapp-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
       - run: ./gradlew build --project-cache-dir ~/.gradle --console plain
-      - run: pwd
       - save_cache:
           key: v2-myapp-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
           paths:
