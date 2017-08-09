@@ -2,11 +2,9 @@ version: 2
 jobs:
   build:
     docker:
-      - image: beevelop/android:latest
+      - image: bitriseio/docker-android
     working_directory: ~/KotlinCalculator
     steps:
-      - run: sdkmanager --update
-      - run: yes | sdkmanager --licenses
       - checkout
       - restore_cache:
           keys:
