@@ -9,7 +9,7 @@ jobs:
       - restore_cache:
           keys:
             - v2-myapp-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
-      - run: ./gradlew assemble --project-cache-dir ~/.gradle --console plain
+      - run: ./gradlew clean build --project-cache-dir ~/.gradle --console plain
       - save_cache:
           key: v2-myapp-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
           paths:
